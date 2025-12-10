@@ -1,0 +1,279 @@
+# 🌌 Out There Dashboard
+
+A polished, user-configurable dashboard that aggregates live public API data into draggable, toggleable widgets. Built with React + Vite and designed for real-time updates with persistent user layouts.
+
+## ✨ Features
+
+### Core Widgets
+- **🚀 NASA APOD**: Astronomy Picture of the Day with descriptions
+- **🌤️ OpenWeather**: Current weather with city search
+- **📰 News**: Latest headlines by topic (technology, science, space, business, health)
+- **🛸 SpaceX**: Upcoming launches within 30 days
+- **🎲 Bored API**: Random activity suggestions
+- **✈️ Aviation**: Live flight tracking with intelligent flight selection heuristic
+
+### User Experience
+- **Draggable & Resizable**: Widgets can be moved and resized via `react-grid-layout`
+- **Toggleable Widgets**: Enable/disable widgets through sidebar controls
+- **Persistent Layout**: All layout changes and preferences saved to localStorage
+- **Manual & Auto-Refresh**: Refresh all widgets on demand or enable 5-minute auto-refresh
+- **Responsive Design**: Mobile-friendly layout that adapts to screen size
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/EthanK511/Out-There-Dashboard.git
+   cd Out-There-Dashboard
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure API keys**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Edit `.env` with your API keys:
+   ```env
+   NASA_API_KEY=DEMO_KEY
+   OPENWEATHER_API_KEY=your_openweather_key_here
+   NEWS_API_KEY=your_newsapi_key_here
+   AVIATION_API_KEY=your_aviationstack_key_here
+   PROXY_PORT=3001
+   ```
+
+4. **Start the proxy server** (in one terminal)
+   ```bash
+   npm run start-proxy
+   ```
+
+5. **Start the development server** (in another terminal)
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 🔑 API Key Setup
+
+### Required API Keys
+
+1. **NASA API** (Free, instant)
+   - Get key: https://api.nasa.gov/
+   - Default: `DEMO_KEY` (limited requests)
+   - Recommended: Get free personal key
+
+2. **OpenWeather API** (Free tier available)
+   - Sign up: https://openweathermap.org/api
+   - Plan: Free (60 calls/minute)
+   - Required for Weather widget
+
+3. **News API** (Free tier available)
+   - Sign up: https://newsapi.org/
+   - Plan: Free (100 requests/day in development)
+   - Required for News widget
+
+4. **Aviation Stack** (Free tier available)
+   - Sign up: https://aviationstack.com/
+   - Plan: Free (100 requests/month)
+   - Required for Aviation widget
+
+### Optional APIs (No key needed)
+- **SpaceX API**: Public, no authentication
+- **Bored API**: Public, no authentication
+
+### Rate Limits & Caveats
+
+⚠️ **Important Rate Limit Information**:
+
+- **NASA DEMO_KEY**: 30 requests/hour, 50 requests/day
+- **OpenWeather Free**: 60 calls/minute, 1M calls/month
+- **News API Free**: 100 requests/day (dev mode), attribution required
+- **Aviation Stack Free**: 100 requests/month
+- **SpaceX API**: No rate limit (reasonable use)
+- **Bored API**: No rate limit
+
+**Best Practices**:
+- Use auto-refresh sparingly (set to 5 minutes by default)
+- Don't refresh aviation widget too frequently (free tier limited)
+- Consider caching for production deployment
+- News API free tier is for development only
+
+## 🏗️ Project Structure
+
+```
+Out-There-Dashboard/
+├── proxy/
+│   └── server.js              # Express proxy server for API keys
+├── src/
+│   ├── components/
+│   │   ├── widgets/
+│   │   │   ├── NasaWidget.jsx
+│   │   │   ├── WeatherWidget.jsx
+│   │   │   ├── NewsWidget.jsx
+│   │   │   ├── SpaceXWidget.jsx
+│   │   │   ├── BoredWidget.jsx
+│   │   │   ├── AviationWidget.jsx
+│   │   │   └── Widget.css      # Shared widget styles
+│   │   ├── Sidebar.jsx         # Widget toggle sidebar
+│   │   └── Sidebar.css
+│   ├── utils/
+│   │   └── api.js              # Shared fetch utilities
+│   ├── App.jsx                 # Main app component
+│   ├── App.css
+│   ├── main.jsx                # React entry point
+│   └── index.css               # Global styles
+├── index.html
+├── vite.config.js              # Vite configuration
+├── package.json
+├── .env.example                # Environment template
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+## 🎯 Aviation Widget Heuristic
+
+The Aviation widget uses a scoring algorithm to select the most "viewable" flight:
+
+**Scoring Criteria**:
+- **Altitude** (50 pts): Flights between 5,000-12,000m (optimal viewing altitude)
+- **Speed** (30 pts): Flights faster than 200 km/h (commercial jets)
+- **Route Info** (20 pts): Complete departure and arrival data
+- **Airline Info** (10 pts): Has airline name
+
+The flight with the highest score is displayed with real-time position, altitude, and speed data.
+
+## 🛠️ Development
+
+### Available Scripts
+
+```bash
+npm run dev          # Start Vite dev server (port 5173)
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run start-proxy  # Start Express proxy server (port 3001)
+```
+
+### Tech Stack
+
+**Frontend**:
+- React 18
+- Vite 5
+- react-grid-layout (drag & drop)
+- CSS3 (custom styling)
+
+**Backend**:
+- Node.js
+- Express (proxy server)
+- CORS handling
+- dotenv (environment variables)
+
+### Code Quality
+
+- **Modular Components**: One component per widget
+- **Shared Utilities**: Centralized API fetch functions
+- **Clear Comments**: Well-documented code
+- **Error Handling**: Graceful error states for all widgets
+- **localStorage Persistence**: Layout and preferences saved automatically
+
+## 🚢 Deployment
+
+### Vercel Deployment
+
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy**
+   ```bash
+   vercel
+   ```
+
+3. **Set Environment Variables**
+   In Vercel dashboard, add your API keys as environment variables
+
+### Netlify Deployment
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy `dist` folder**
+   - Drag and drop `dist` to Netlify
+   - Or connect GitHub repo for auto-deploy
+
+3. **Configure Functions**
+   - Convert proxy to Netlify Functions if needed
+   - Set environment variables in Netlify dashboard
+
+### Docker Deployment
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+EXPOSE 5173 3001
+CMD ["npm", "run", "start-proxy"]
+```
+
+## 📸 Demo Instructions
+
+1. **Start both servers** (proxy and frontend)
+2. **Open browser** to `http://localhost:5173`
+3. **Try dragging widgets** - Click and drag from the colored header
+4. **Toggle widgets** - Click "☰ Widgets" button to open sidebar
+5. **Search weather** - Enter a city name in the Weather widget
+6. **Change news topic** - Select different topics from the dropdown
+7. **Refresh data** - Click "🔄 Refresh" or enable "⏱️ Auto-refresh"
+8. **Reset layout** - Click "🔄 Reset" to restore defaults
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- NASA API for space imagery
+- OpenWeather for weather data
+- NewsAPI for news headlines
+- SpaceX API for launch data
+- Bored API for activity suggestions
+- Aviation Stack for flight tracking
+- react-grid-layout for drag & drop functionality
+
+## 📧 Contact
+
+Ethan - [@EthanK511](https://github.com/EthanK511)
+
+Project Link: [https://github.com/EthanK511/Out-There-Dashboard](https://github.com/EthanK511/Out-There-Dashboard)
+
+---
+
+Made with ❤️ and ☕ by Ethan

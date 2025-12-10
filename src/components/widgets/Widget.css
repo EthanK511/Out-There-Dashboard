@@ -1,0 +1,492 @@
+/* Dark Theme Variables */
+:root {
+  --bg-primary: rgba(30, 41, 59, 0.6);
+  --bg-secondary: rgba(51, 65, 85, 0.4);
+  --bg-hover: rgba(71, 85, 105, 0.5);
+  --text-primary: #e0e7ff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --primary: #a5b4fc;
+  --primary-bright: #c7d2fe;
+  --accent: #a78bfa;
+  --border: rgba(99, 102, 241, 0.2);
+  --border-hover: rgba(99, 102, 241, 0.4);
+  --success: #86efac;
+  --error: #fca5a5;
+}
+
+/* NASA Widget */
+.nasa-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nasa-content h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.nasa-image,
+.nasa-video {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+}
+
+.nasa-date {
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.nasa-explanation {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Weather Widget */
+.weather-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.weather-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.weather-input::placeholder {
+  color: var(--text-muted);
+}
+
+.weather-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.1);
+}
+
+.weather-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.weather-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.weather-content h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.weather-icon {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.weather-temp {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a5b4fc 0%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.weather-description {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  background: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.weather-details div {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.weather-details div:last-child {
+  border-bottom: none;
+}
+
+/* News Widget */
+.news-controls {
+  margin-bottom: 20px;
+}
+
+.news-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.news-select:hover {
+  border-color: var(--border-hover);
+}
+
+.news-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.1);
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.news-item {
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.news-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
+}
+
+.news-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-item h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.news-source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* SpaceX Widget */
+.spacex-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.spacex-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px 20px;
+  font-size: 1rem;
+}
+
+.spacex-item {
+  padding: 18px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.spacex-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+}
+
+.spacex-item h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.spacex-date {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.spacex-details {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.spacex-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.spacex-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.5);
+}
+
+/* Bored Widget */
+.bored-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.bored-activity h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.bored-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.bored-tag {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.bored-tag:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-hover);
+}
+
+.bored-label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.bored-value {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.bored-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.bored-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
+}
+
+/* Aviation Widget */
+.aviation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aviation-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px 20px;
+  font-size: 1rem;
+}
+
+.aviation-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.aviation-header h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.aviation-flight-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a5b4fc 0%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.aviation-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.aviation-airport {
+  flex: 1;
+  text-align: center;
+}
+
+.aviation-code {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.aviation-city {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.aviation-arrow {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.aviation-live {
+  padding: 18px;
+  background: rgba(52, 211, 153, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(52, 211, 153, 0.3);
+}
+
+.aviation-live h4 {
+  font-size: 0.95rem;
+  color: var(--success);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.aviation-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aviation-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.1);
+}
+
+.aviation-stat:last-child {
+  border-bottom: none;
+}
+
+.aviation-stat span {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.aviation-stat strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.aviation-aircraft {
+  text-align: center;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
