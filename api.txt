@@ -1,16 +1,1 @@
-NEWS
-https://newsapi.org/register/success
-b9f880b976d64fddbb99782e8991ad19
-
-NASA
-noreply@api.data.gov
-HPLHdbkd19cqHeYyd5r4hxe96i3HICLATfwwP9Ul
-
-SpaceX
-https://github.com/r-spacex/SpaceX-API
-https://api.spacexdata.com/v5/launches/latest
-
-OpenSky
-https://opensky-network.org/
-API?
-
+exe
